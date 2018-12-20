@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- 
+  This file is part of Vota DeMolay.
+
+  Foobar is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  Vota DeMolay is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with Foobar.  If not, see <https://www.gnu.org/licenses/>6.
+
+  -->
+<!--
+  [Vota DeMolay]/src/resultado.html
+  Author: Laudivan Freire de Almeida <laudivan AT gmail.com> 
+  -->
+
+<html>
+  <head>
+  <meta charset="UTF-8" />
+  <title>Resultado</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <img id="logo" src="./img/logo.svg" />
+  
+  <section class="container">
+      <div id="diretoria" class="row">
+      </div>
+  </section>
+    
+  <section id="resultadoMC" class="container">
+    <h1>Mestre Conselheiro</h1>
+    <div class="row" style="font-weight: bolder">
+      <div class="col">ID DeMolay</div>
+      <div class="col-md-auto">Nome</div>
+      <div class="col">Votos</div>
+    </div>
+    <hr />
+  </section>
+  
+  <section id="resultado1C" class="container">
+    <h1>Primeiro Conselheiro</h1>
+    <div class="row" style="font-weight: bolder">
+      <div class="col">ID DeMolay</div>
+      <div class="col-md-auto">Nome</div>
+      <div class="col">Votos</div>
+    </div>
+    <hr />
+  </section>
+  
+  <section id="resultado2C" class="container">
+    <h1>Segundo Conselheiro</h1>
+    <div class="row" style="font-weight: bolder">
+      <div class="col">ID DeMolay</div>
+      <div class="col-md-auto">Nome</div>
+      <div class="col">Votos</div>
+    </div>
+    <hr />
+  </section>
+  
+  <section id="resultadoTes" class="container">
+    <h1>Tesoureiro</h1>
+    <div class="row" style="font-weight: bolder">
+      <div class="col">ID DeMolay</div>
+      <div class="col-md-auto">Nome</div>
+      <div class="col">Votos</div>
+    </div>
+    <hr />
+  </section>
+  
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./js/candidatos.js"></script>
+  <script src="./js/functions.js"></script>
+<script>
+  $(function () {
+    /*Obtendo e ordenando os reultado*/
+  
+    resultado = JSON.parse(localStorage.getItem ("resultado"));
+    resultado.candMC = resultado.candMC.sort(compareCand);
+    resultado.cand1Cons = resultado.cand1Cons.sort(compareCand);
+    resultado.cand2Cons = resultado.cand2Cons.sort(compareCand);
+    resultado.candTes = resultado.candTes.sort(compareCand);
+  
+    mc = resultado.candMC[0];
+    c1 = resultado.cand1Cons[0];
+    c2 = resultado.cand2Cons[0];
+    tes = resultado.candTes[0];
+ 
+    /*
+      Apresentando a nova diretoria
+      TODO: realizar algum tratamento em caso de empate.
+    */ 
+    $('#diretoria').append(
+      '<label class="col"><img src="./img/candidatos/'+ 
+        mc.id + '.jpg" /><h4>' + mc.nome + 
+        '</h4><p>Mestre Conselheiro</p></label>' +
+      '<label class="col"><img src="./img/candidatos/'+ 
+        c1.id + '.jpg" /><h4>' + 
+        c1.nome + 
+        '</h4><p>Primeiro Conselheiro</p></label>' +
+      '<label class="col"><img src="./img/candidatos/'+ 
+        c2.id + '.jpg" /><h4>' + 
+        c2.nome + '</h4><p>Segundo Conselheiro</p></label>' +
+      '<label class="col"><img src="./img/candidatos/'+ 
+        tes.id + '.jpg" /><h4>' + 
+        tes.nome + 
+        '</h4><p>Tesoureiro</p></label>'
+    );
+  
+    /* Listando quantidade de votos por candidato a mestre conselheiro */
+    for (c in resultado.candMC) {
+      $('#resultadoMC').append (
+        '<div class="row"><div class="col">' + resultado.candMC[c].id + 
+        '</div><div class="col-md-auto">' + resultado.candMC[c].nome + 
+        '</div><div class="col">' + resultado.candMC[c].votos + 
+        '</div></div><hr />'
+      );
+    }
+  
+    /* Listando quantidade de votos por candidato a Primeiro Conselheiro */
+    for (c in resultado.cand1Cons) {
+      $('#resultado1C').append (
+        '<div class="row"><div class="col">' + 
+          resultado.cand1Cons[c].id + 
+        '</div><div class="col-md-auto">' + 
+          resultado.cand1Cons[c].nome + 
+        '</div><div class="col">' + 
+          resultado.cand1Cons[c].votos + 
+        '</div></div><hr />'
+      );
+    }
+  
+    /* Listando quantidade de votos por candidato a Segundo Conselheiro */
+    for (c in resultado.cand2Cons) {
+      $('#resultado2C').append (
+        '<div class="row"><div class="col">' + 
+          resultado.cand2Cons[c].id + 
+        '</div><div class="col-md-auto">' + 
+          resultado.cand2Cons[c].nome + 
+        '</div><div class="col">' + 
+          resultado.cand2Cons[c].votos + 
+        '</div></div><hr />'
+      );
+    }
+    
+    /* Listando quantidade de votos por candidato a Tesoureiro */
+    for (c in resultado.candTes) {
+      $('#resultadoTes').append (
+        '<div class="row"><div class="col">' + 
+          resultado.candTes[c].id + 
+        '</div><div class="col-md-auto">' + 
+          resultado.candTes[c].nome + 
+        '</div><div class="col">' + 
+          resultado.candTes[c].votos + 
+        '</div></div><hr />'
+      );
+    }
+  });
+</script>  
+</body>
+</html>

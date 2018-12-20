@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- 
+  This file is part of Vota DeMolay.
+
+  Foobar is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  Vota DeMolay is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with Foobar.  If not, see <https://www.gnu.org/licenses/>6.
+
+  -->
+<!--
+  [Vota DeMolay]/src/index.html
+  Author: Laudivan Freire de Almeida <laudivan AT gmail.com> 
+  -->
+<html>
+  <head>
+  <meta charset="UTF-8" />
+  <title>Vota DeMolay</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <div class="app">
+  <img id="logo" src="./img/logo.svg" />
+  
+  <section id="inicio" class="container">
+    <div class="row">
+      <div class="col"><img src="./img/cabure.1.svg" /></div>
+      <div class="col">
+        <h1>Olá DeMolay!</h1>
+        <p>
+          Digite o seu ID DeMolay abaixo
+          <form><input id="idEleitor" class="form-control form-control-lg" type="number"/></form>
+        </p>
+        <p id="jaVotou">
+         <span></span>, <br />você já votou!
+        </p>
+        <p id="votacaoLiberada">
+         <span></span>, <br />clique no botão abaixo para escolher a nova diretoria do #GTGL!
+        <br/> <br/>
+        <button type="button" class="btn btn-outline-primary btn-lg">Iniciar votação</button>\
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="vtesoureito" class="voto container">
+    <h1>Escolha o Tesoureiro</h1>
+    
+    <div class="row lista">
+    </div>
+    
+    <div class="row">
+      <div class="btnconfirma col"><button type="button" class="btn btn-success btn-lg">CONFIRMA</button></div>
+    </div>
+  </section>
+  
+  <section id="v2conselheiro">
+    <h1>Escolha o Segundo Conselheiro</h1>
+    
+    <div class="row lista">
+    </div>
+    
+    <div class="row">
+      <div class="btnconfirma col"><button type="button" class="btn btn-success btn-lg">CONFIRMA</button></div>
+    </div>
+  </section>
+  
+  <section id="v1conselheiro">
+    <h1>Escolha o Primeiro Conselheiro</h1>
+    
+    <div class="row lista">
+    </div>
+    
+    <div class="row">
+      <div class="btnconfirma col"><button type="button" class="btn btn-success btn-lg">CONFIRMA</button></div>
+    </div>
+  </section>
+  
+  <section id="vmc">
+    <h1>Escolha o Mestre Conselheiro</h1>
+    
+    <div class="row lista">
+    </div>
+    
+    <div class="row">
+      <div class="btnconfirma col"><button type="button" class="btn btn-success btn-lg">CONFIRMA</button></div>
+    </div>
+  </section>
+  
+  <section id="confirma">
+    <h1>Confirme o seu voto</h1>
+    
+    <div class="row lista">
+    </div>
+    
+    <div class="row">
+      <div class="col"><button type="button" class="btn btn-success btn-lg">CONFIRMA</button></div>
+    </div>
+  </section>
+  
+  <section id="FIM">
+    <h1>FIM DA VOTAÇÃO</h1>
+  </section>   
+    
+  </div> 
+  
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./js/candidatos.js"></script>
+  <script src="./js/votantes.js"></script>
+  <script src="./js/functions.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>
