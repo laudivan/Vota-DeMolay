@@ -1,6 +1,6 @@
 ![Guardiões Templários do Grande Lago](/doc/gtgl.png)
 
-# Vota DeMolay
+# Vota DeMolay do Capítulo Guardiões Templários do Grande Lago
 
 Pequeno aplicativo feito em HTML5 + Javascript para ajudar ao Capítulo Guardiões Templários do Grande Lago, número 943 do Supremo Conselho da Ordem DeMolay para 
 a República Federativa do Brasil, patrocinado pela Loja Maçônica Lago das Acácias e jurisdicionado ao Supremo Conselho da Ordem DeMolay para a Bahia, a 
